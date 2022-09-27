@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B700AD3A28D68C8500035535 /* NuevoProducto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B700AD3928D68C8500035535 /* NuevoProducto.swift */; };
+		B700AD3C28D68F6A00035535 /* IngresoProducto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B700AD3B28D68F6A00035535 /* IngresoProducto.swift */; };
 		B75FE54328AB4DCE0025157C /* ElSantoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75FE54228AB4DCE0025157C /* ElSantoApp.swift */; };
 		B75FE54528AB4DCE0025157C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75FE54428AB4DCE0025157C /* ContentView.swift */; };
 		B75FE54728AB4DCF0025157C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75FE54628AB4DCF0025157C /* Assets.xcassets */; };
@@ -14,9 +16,14 @@
 		B7DB8D7F28BABFBD000DB426 /* Boletas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB8D7E28BABFBD000DB426 /* Boletas.swift */; };
 		B7DB8D8128BACE84000DB426 /* Historico.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB8D8028BACE84000DB426 /* Historico.swift */; };
 		B7DB8D8328BACE91000DB426 /* Precios.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB8D8228BACE91000DB426 /* Precios.swift */; };
+		B7DD4EAD28DD49F60063A9F8 /* Historial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7DD4EAB28DD49F60063A9F8 /* Historial.xcdatamodeld */; };
+		B7DD4EAF28DD4B160063A9F8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD4EAE28DD4B160063A9F8 /* DataController.swift */; };
+		B7DD4EB128DD61FB0063A9F8 /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD4EB028DD61FB0063A9F8 /* Lista.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B700AD3928D68C8500035535 /* NuevoProducto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevoProducto.swift; sourceTree = "<group>"; };
+		B700AD3B28D68F6A00035535 /* IngresoProducto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresoProducto.swift; sourceTree = "<group>"; };
 		B75FE53F28AB4DCE0025157C /* ElSanto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElSanto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75FE54228AB4DCE0025157C /* ElSantoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElSantoApp.swift; sourceTree = "<group>"; };
 		B75FE54428AB4DCE0025157C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,6 +32,9 @@
 		B7DB8D7E28BABFBD000DB426 /* Boletas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boletas.swift; sourceTree = "<group>"; };
 		B7DB8D8028BACE84000DB426 /* Historico.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Historico.swift; sourceTree = "<group>"; };
 		B7DB8D8228BACE91000DB426 /* Precios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Precios.swift; sourceTree = "<group>"; };
+		B7DD4EAC28DD49F60063A9F8 /* Historial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Historial.xcdatamodel; sourceTree = "<group>"; };
+		B7DD4EAE28DD4B160063A9F8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B7DD4EB028DD61FB0063A9F8 /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				B75FE54228AB4DCE0025157C /* ElSantoApp.swift */,
-				B7DB8D8028BACE84000DB426 /* Historico.swift */,
-				B7DB8D8228BACE91000DB426 /* Precios.swift */,
 				B75FE54428AB4DCE0025157C /* ContentView.swift */,
-				B7DB8D7E28BABFBD000DB426 /* Boletas.swift */,
+				B7DD4EB228DD620E0063A9F8 /* First */,
+				B7DD4EAB28DD49F60063A9F8 /* Historial.xcdatamodeld */,
+				B7DD4EAE28DD4B160063A9F8 /* DataController.swift */,
 				B75FE54628AB4DCF0025157C /* Assets.xcassets */,
 				B75FE54828AB4DCF0025157C /* Preview Content */,
 			);
@@ -74,6 +84,27 @@
 				B75FE54928AB4DCF0025157C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B7DD4EB228DD620E0063A9F8 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				B7DB8D7E28BABFBD000DB426 /* Boletas.swift */,
+				B7DB8D8028BACE84000DB426 /* Historico.swift */,
+				B700AD3928D68C8500035535 /* NuevoProducto.swift */,
+				B7DD4EB328DD62460063A9F8 /* Productos */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		B7DD4EB328DD62460063A9F8 /* Productos */ = {
+			isa = PBXGroup;
+			children = (
+				B7DB8D8228BACE91000DB426 /* Precios.swift */,
+				B700AD3B28D68F6A00035535 /* IngresoProducto.swift */,
+				B7DD4EB028DD61FB0063A9F8 /* Lista.swift */,
+			);
+			path = Productos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B700AD3C28D68F6A00035535 /* IngresoProducto.swift in Sources */,
 				B7DB8D7F28BABFBD000DB426 /* Boletas.swift in Sources */,
 				B75FE54528AB4DCE0025157C /* ContentView.swift in Sources */,
+				B7DD4EB128DD61FB0063A9F8 /* Lista.swift in Sources */,
 				B7DB8D8128BACE84000DB426 /* Historico.swift in Sources */,
+				B7DD4EAF28DD4B160063A9F8 /* DataController.swift in Sources */,
+				B700AD3A28D68C8500035535 /* NuevoProducto.swift in Sources */,
+				B7DD4EAD28DD49F60063A9F8 /* Historial.xcdatamodeld in Sources */,
 				B75FE54328AB4DCE0025157C /* ElSantoApp.swift in Sources */,
 				B7DB8D8328BACE91000DB426 /* Precios.swift in Sources */,
 			);
@@ -351,6 +387,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B7DD4EAB28DD49F60063A9F8 /* Historial.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7DD4EAC28DD49F60063A9F8 /* Historial.xcdatamodel */,
+			);
+			currentVersion = B7DD4EAC28DD49F60063A9F8 /* Historial.xcdatamodel */;
+			path = Historial.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B75FE53728AB4DCE0025157C /* Project object */;
 }

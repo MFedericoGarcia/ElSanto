@@ -1,37 +1,33 @@
 //
-//  ContentView.swift
+//  NuevoProducto.swift
 //  ElSanto
 //
-//  Created by Fede Garcia on 16/08/2022.
+//  Created by Fede Garcia on 17/09/2022.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct NuevoProducto: View {
     var body: some View {
-        NavigationView{
             
             ZStack{
-                Image("candy")
-                    .ignoresSafeArea()
-               
+                
+                Image("boxes")
+                    .renderingMode(.original)
+                    .resizable()
+                .ignoresSafeArea()
+                
+                
+                
                 VStack{
-                    
-                 
-                    
-                        
-                        
-                                         
-                    Spacer()
                     HStack{
                         NavigationLink {
-                            Boletas()
+                            IngresoProducto()
                         } label: {
                             Text("Ingreso")
                                 .padding()
                                 .font(.title)
-                            Image(systemName: "tray.and.arrow.down.fill")
+                            Image(systemName: "text.badge.plus")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.green, .black)
                                 .font(.system(size: 100))
@@ -44,33 +40,11 @@ struct ContentView: View {
                             .background(.ultraThinMaterial)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                    
                     HStack{
                         NavigationLink {
-                            Historico()
+                            Precios()
                         } label: {
-                            Text("Histórico")
-                                .padding()
-                                .font(.title)
-                            Image(systemName: "tray.full.fill")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, .black)
-                                .font(.system(size: 100))
-                                .frame(width: 100, height: 100, alignment: .center)
-                                .scaledToFill()
-                        }
-                            .frame(width: 300, height: 100, alignment: .center)
-                            .padding()
-                            .background(.ultraThinMaterial)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-
-                    
-                    HStack{
-                        NavigationLink {
-                            NuevoProducto()
-                        } label: {
-                            Text("Productos  ")
+                            Text("Precios   ")
                                 .padding()
                                 .font(.title)
                             Image(systemName: "rectangle.and.pencil.and.ellipsis")
@@ -86,24 +60,35 @@ struct ContentView: View {
                         .background(.ultraThinMaterial)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 20))
+                    HStack{
+                        NavigationLink {
+                            Lista()
+                        } label: {
+                            Text("Lista")
+                                .padding()
+                                .font(.title)
+                            Image(systemName: "list.number")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.green, .black)
+                                .font(.system(size: 100))
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .scaledToFill()
+                        }
+                            .frame(width: 300, height: 100, alignment: .center)
+                            
+                            .padding()
+                            .background(.ultraThinMaterial)
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                         
-                    Spacer()
                 }
-        
-                .navigationTitle("El Santo Maxikiosco")
-                .foregroundColor(.black)
-               
             }
-            
-        }
-        
         
     }
-    
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct NuevoProducto_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NuevoProducto()
     }
 }

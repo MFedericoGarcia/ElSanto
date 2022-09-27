@@ -35,8 +35,6 @@ struct Precios: View {
     
     var body: some View {
         
-        NavigationView {
-            
             ZStack {
                 
                 /// BACKGROUND COLOR--------------------------
@@ -128,7 +126,6 @@ struct Precios: View {
                 Text("$ \(numeroFinal, specifier: "%.2f")").font(.largeTitle)
             }
             
-        }
         
         
     }

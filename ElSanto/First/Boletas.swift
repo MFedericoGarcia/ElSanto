@@ -9,8 +9,13 @@ import SwiftUI
 
 struct Boletas: View {
     
+    @Environment(\.managedObjectContext) var moc
+    
+    
+    
+    
     @State private var proveedores = [1, 2, 3, 4, 5 ,6]
-    @State private var proveedoresNombres : [String] = ["Osle", "Coca-Cola", "Palco", "Pepsico", "Nobleza Picardo", "Mondelez", "Aguas Danone", "Pepsi", "Massalin Particulares"]
+    @State private var proveedoresNombres = ["Osle", "Coca-Cola", "Palco", "Pepsico", "Nobleza Picardo", "Mondelez", "Aguas Danone", "Pepsi", "Massalin Particulares"]
     let facturacionABC = ["'A'", "'B'", "'C'", "Consumidor Final"]
     
     @State private var proveedorSeleccionado = 0
@@ -45,9 +50,6 @@ struct Boletas: View {
         
         
         
-        
-        NavigationView {
-            
             
             
             ZStack{
@@ -125,6 +127,7 @@ struct Boletas: View {
                             
                             let answer = "\(answer1)   $\(answer2)"
                             
+                            agregarABaseDeDatos()
                             boletasIngresadas.append(answer)
                             reiniciarContadores()
                         }, label: {
@@ -238,6 +241,7 @@ struct Boletas: View {
                                 
                                 let answer = "\(answer1)   $\(answer2)"
                                 
+                                agregarABaseDeDatos()
                                 boletasIngresadas.append(answer)
                                 reiniciarContadores()
                             }, label: {
@@ -297,7 +301,6 @@ struct Boletas: View {
             .alert(proveedorAgregado, isPresented: $mostrarFinal){
                 Button("Confirmar", action: alerta)
             }
-        }
         
         
         
@@ -351,6 +354,29 @@ struct Boletas: View {
     func removeRows(at offsets: IndexSet){
         boletasIngresadas.remove(atOffsets: offsets)
     }
+    
+    func agregarABaseDeDatos(){
+        
+        let tipo = facturacionSeleccionada
+        let proveedor = proveedoresNombres[proveedorSeleccionado]
+        let monto = montoSeleccionado
+        let fecha = fechaSeleccionada
+        
+        
+        let boleta = Boleta(context: moc)
+        boleta.tipo = Int16(tipo)
+        boleta.proveedor = proveedor
+        boleta.monto = monto
+        boleta.fecha = fecha
+        boleta.id = UUID()
+        
+        try? moc.save()
+        
+    }
+    
+    
+    
+    
 }
 
 struct Boletas_Previews: PreviewProvider {

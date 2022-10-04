@@ -26,7 +26,10 @@ struct Categoria: Identifiable{
 
 struct IngresoProducto: View {
     
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.categoria), SortDescriptor(\.nombre)]) var productos2: FetchedResults<Productos>
     @Environment(\.managedObjectContext) var moc
+    
+    
     @State private var categorias = ["Bebidas", "Varios", "Cigarrillos", "Tabacos"]
     
     @State private var productos = [
@@ -89,7 +92,9 @@ struct IngresoProducto: View {
                                 if nombreProductoNuevo == ""{
                                     mostrarError.toggle()
                                 } else {
-                               ingresarProducto()
+                                 
+                                    agregarABaseDeDatos()
+                                    ingresarProducto()
                                 }
                             }, label: {
                                 Text("Ingresar")
@@ -249,7 +254,26 @@ struct IngresoProducto: View {
         productos.remove(atOffsets: offsets)
     }
     
-    
+    func agregarABaseDeDatos(){
+        
+        
+        let nombre = nombreProductoNuevo
+        let precio = precioEntradaNuevo
+        let categoria = categoriaNuevo
+        let iva = masIva
+        
+        let producto2 = Productos(context: moc)
+        
+        producto2.nombre = nombre
+        producto2.precio = precio
+        producto2.categoria = Int64(categoria)
+        producto2.iva = iva
+        producto2.id = UUID()
+        
+        try? moc.save()
+        
+        
+    }
     
 }
 

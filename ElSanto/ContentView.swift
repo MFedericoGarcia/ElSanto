@@ -19,11 +19,22 @@ struct ContentView: View {
                 VStack{
                     
                  
-                    
-                        
-                        
                                          
                     Spacer()
+                    
+                       VStack{
+                           Text("El Santo Maxikiosco")
+                           .foregroundColor(.white)
+                           .font(
+                            .system(.largeTitle, design: .rounded)
+                                .weight(.heavy)
+
+                               )
+                           .shadow(color: .black, radius: 8, x: 10, y: 5)
+                           .padding()
+                       }
+                       .frame(width: 2000, height: 200, alignment: .center)
+                    
                     HStack{
                         NavigationLink {
                             Boletas()
@@ -31,6 +42,7 @@ struct ContentView: View {
                             Text("Ingreso")
                                 .padding()
                                 .font(.title)
+                                .foregroundColor(.black)
                             Image(systemName: "tray.and.arrow.down.fill")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.green, .black)
@@ -52,6 +64,7 @@ struct ContentView: View {
                             Text("Histórico")
                                 .padding()
                                 .font(.title)
+                                .foregroundColor(.black)
                             Image(systemName: "tray.full.fill")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.black, .black)
@@ -73,6 +86,7 @@ struct ContentView: View {
                             Text("Productos  ")
                                 .padding()
                                 .font(.title)
+                                .foregroundColor(.black)
                             Image(systemName: "rectangle.and.pencil.and.ellipsis")
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.gray, .black)
@@ -87,11 +101,13 @@ struct ContentView: View {
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         
+                   
                     Spacer()
                 }
         
                 .navigationTitle("El Santo Maxikiosco")
-                .foregroundColor(.black)
+                .navigationBarHidden(true)
+                
                
             }
             

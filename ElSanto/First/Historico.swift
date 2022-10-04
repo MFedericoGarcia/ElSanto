@@ -9,12 +9,12 @@ import SwiftUI
 
 struct Historico: View {
     
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.fecha)]) var boletas: FetchedResults<Boleta>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.fecha, order: .reverse)]) var boletas: FetchedResults<Boleta>
     @Environment(\.managedObjectContext) var managedObjectContext
     
     
     @State private var total = 0.00
-    
+    @State private var meslegido = Date()
     
     var body: some View {
         
@@ -23,39 +23,43 @@ struct Historico: View {
         VStack{
             
             
-            
             List{
                 
-                 ForEach(boletas){ boleta in
+                ForEach(boletas){ boleta in
+                    
                     
                     let date = boleta.fecha!
                     
                     HStack{
                         
                         Text(date.formatted(date: .abbreviated, time: .omitted))
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        Text(boleta.proveedor ?? "Unknown").multilineTextAlignment(.leading)
+                        Text(boleta.proveedor ?? "Unknown").multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                       
                         
-                        Spacer()
                         
                         Text("\(String(format: "%.2f", boleta.monto))").multilineTextAlignment(.trailing).foregroundColor(.red)
-                        
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                         
                         
                         
                     }
+                    
                 }
-                Text("Total: \(String(format: "%.2f", totales()))")
+                .onDelete(perform: borrarBoletas)
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+            }
+            Spacer()
+            Text("Total: \(String(format: "%.2f", totales()))").multilineTextAlignment(.center)
             
         }
-        .toolbar {
-            ToolbarItemGroup{
-                EditButton()
-                
-            }
-            
-        }
+        
     }
     
     func totales() -> Double {
@@ -71,14 +75,13 @@ struct Historico: View {
         }
         return totales
     }
-    func guardarBoletas() {
-        try? managedObjectContext.save()
-    }
+    
     func borrarBoletas(at offsets: IndexSet){
         for index in offsets {
             let boleta = boletas[index]
             managedObjectContext.delete(boleta)
             }
+        try? managedObjectContext.save()
     }
 }
 
